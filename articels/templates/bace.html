@@ -1,0 +1,43 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{%block title%}
+    Articels
+    {%endblock%}</title>
+    <link rel="stylesheet" href='{% static "articel.css" %}'>
+</head>
+<body>
+<header>
+  <h2><a href='{% url "articels:list"%}'>Articles</a></h2>
+   <nav>
+     <ul>
+       {% if user.is_authenticated %}
+       <li>
+         <form class='logout-link' action='/accounts/logout' method='post'>
+           {% csrf_token %}
+           <button type='submit'>logout</button>
+         </form>
+       </li>
+       <li>
+       <a class='highlight' href='/article/create'>create new articles</a>
+       </li>
+       {% else %}
+       <li>
+       <a href='/accounts/login'>login</a>
+       </li>
+       <li>
+       <a href='/accounts/signup'>signup</a>
+       </li>
+       {%endif%}
+     </ul>
+   </nav>
+</header>
+<div class='wrapper'>
+{%block content%}
+
+{%endblock%}
+</div>
+</body>
+</html>

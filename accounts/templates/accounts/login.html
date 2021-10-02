@@ -1,0 +1,12 @@
+{%extends 'bace.html'%}
+{%block content%}
+<h1 class='center'>login<h1>
+<form class='site-form' action='/accounts/login' method='post'>
+  {{form}}
+  {%csrf_token%}
+  {% if request.GET.next %}<!-- agar user mikhaste be safhe dige bere vali be in safhe montaghel shode -->
+<input type='hidden' name='next' value='{{request.GET.next}}'><!-- {{request.GET.next}}:adrese safhe ke mikhaste bere -->
+{%endif%}
+<input type='submit' value='login'>
+</form>
+{%endblock%}

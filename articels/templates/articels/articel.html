@@ -1,0 +1,19 @@
+{%extends 'bace.html'%}
+{%block title%}
+articles
+{%endblock%}
+{%block content%}
+<h1 class='center'>article list</h1>
+<div class='articles'>
+{%for articel in articels%}
+<div class='article'>
+<a href='{% url "articels:detail" slug=articel.slug%}'>{{articel.title}}</a>
+<h2>{{articel.kotah}}</h2>
+<h2>{{articel.date}}</h2>
+<p class='author'>added by {{articel.author.username}}</p>
+</div>
+{%endfor%}
+</div>
+{%endblock%}
+</body>
+</html>

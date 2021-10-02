@@ -1,0 +1,15 @@
+{% extends 'bace.html' %}
+{%load static%}
+{% block content %}
+  <div class='article_create'>
+    <h1 class='center'>
+      create your articel!
+    </h1>
+    <h3 class='hoshdar'>!...به قسمت سلاگ دست نزنید</h3>
+    <form class='site-form' action='/article/create' method='post' enctype='multipart/form-data'><!--enctype:baraye aks-->
+      {{form}}
+      {% csrf_token %}
+      <input type='submit' name='' value='create'>
+  </div>
+<script src='{% static "slugify.js"%}'></script>
+{% endblock %}
